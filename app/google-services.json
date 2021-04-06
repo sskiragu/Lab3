@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "381836671983",
+    "project_id": "android-beginners",
+    "storage_bucket": "android-beginners.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381836671983:android:52ed7ff3a4044fb715941a",
+        "android_client_info": {
+          "package_name": "com.example.lab3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381836671983-6tl9gap2ae5blptl1vj4r3spg9q97m5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUloEOYjp21ZVApqbdkb6gb5G7na--7fk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381836671983-6tl9gap2ae5blptl1vj4r3spg9q97m5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381836671983:android:12d811d1f2147c4d15941a",
+        "android_client_info": {
+          "package_name": "com.sampa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381836671983-6tl9gap2ae5blptl1vj4r3spg9q97m5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUloEOYjp21ZVApqbdkb6gb5G7na--7fk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381836671983-6tl9gap2ae5blptl1vj4r3spg9q97m5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
