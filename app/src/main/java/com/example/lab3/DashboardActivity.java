@@ -23,9 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private FirebaseUser user;
-    private DatabaseReference reference;
-    private String userID;
+//    private FirebaseUser user;
+//    private DatabaseReference reference;
+//    private String userID;
 
     private EditText fullNameProfileEditText, emailProfileEditText, ageProfileEditText;
 
@@ -34,13 +34,13 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        final FragmentProfile fragmentProfile = new FragmentProfile();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        final FragmentProfile fragmentProfile = new FragmentProfile();
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("Users");
-        userID = user.getUid();
+//        user = FirebaseAuth.getInstance().getCurrentUser();
+//        reference = FirebaseDatabase.getInstance().getReference("Users");
+//        userID = user.getUid();
 
         fullNameProfileEditText = findViewById(R.id.fullnameProfileEditText);
         emailProfileEditText = findViewById(R.id.emailProfileEditText);
@@ -49,34 +49,34 @@ public class DashboardActivity extends AppCompatActivity {
         BottomNavigationView stdNav = findViewById(R.id.student_navigation);
         stdNav.setOnNavigationItemSelectedListener(navListener);
 
-        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User userProfile = snapshot.getValue(User.class);
-                if(userProfile != null){
-                   String fullName = userProfile.fullName;
-                   String  email = userProfile.email;
-                   String age = userProfile.age;
-                   Bundle bundle = new Bundle();
-                   bundle.putString("fn", fullName);
-                   bundle.putString("em", email);
-                   bundle.putString("ag", age);
-                   fragmentProfile.setArguments(bundle);
-                   fragmentTransaction.replace(R.id.fragment_container, fragmentProfile);
-                   fragmentTransaction.commit();
-
-
-//                    fullNameProfileEditText.setText(fullName);
-//                    emailProfileEditText.setText(email);
-//                    ageProfileEditText.setText(age);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(DashboardActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
-            }
-        });
+//        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                User userProfile = snapshot.getValue(User.class);
+//                if(userProfile != null){
+//                   String fullName = userProfile.fullName;
+//                   String  email = userProfile.email;
+//                   String age = userProfile.age;
+//                   Bundle bundle = new Bundle();
+//                   bundle.putString("fn", fullName);
+//                   bundle.putString("em", email);
+//                   bundle.putString("ag", age);
+//                   fragmentProfile.setArguments(bundle);
+//                   fragmentTransaction.replace(R.id.fragment_container, fragmentProfile);
+//                   fragmentTransaction.commit();
+//
+//
+////                    fullNameProfileEditText.setText(fullName);
+////                    emailProfileEditText.setText(email);
+////                    ageProfileEditText.setText(age);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(DashboardActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
 
     }
