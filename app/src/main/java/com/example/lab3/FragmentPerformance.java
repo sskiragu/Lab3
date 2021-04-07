@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,14 +20,28 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FragmentPerformance extends Fragment {
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
+
+    public String html ;
+    public String  css ;
+    public String javascript;
+
+    View view;
+
+    RecyclerView recyclerView;
+    LinearLayoutManager layoutManager;
+    List<ModelClass> userList;
+    Adapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_performance, container, false);
+        view =  inflater.inflate(R.layout.fragment_performance, container, false);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -36,11 +52,14 @@ public class FragmentPerformance extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
                 if(userProfile != null){
-                    String html = userProfile.html;
-                    String  css = userProfile.css;
-                    String javascript = userProfile.javascript;
+                    html = userProfile.html;
+                    css = userProfile.css;
+                    javascript = userProfile.javascript;
 
-                    Toast.makeText(getContext(), html, Toast.LENGTH_LONG).show();
+                    initData();
+                    initRecylerView();
+
+                    Toast.makeText(getContext(), html.getClass().getSimpleName(), Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -50,6 +69,24 @@ public class FragmentPerformance extends Fragment {
             }
         });
 
+
         return view;
+    }
+
+    private void initData() {
+        userList = new ArrayList<>();
+        userList.add(new ModelClass(R.drawable.maixe, "HTML", "10:20AM", html, "_____________________________________________________________________"));
+        userList.add(new ModelClass(R.drawable.rice, "CSS", "10:20AM", css, "_____________________________________________________________________"));
+        userList.add(new ModelClass(R.drawable.others1, "JavaScript", "10:20AM", javascript, "_____________________________________________________________________"));
+    }
+
+    private void initRecylerView() {
+        recyclerView = view.findViewById(R.id.myrecyclerview);
+        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new Adapter(userList);
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }
