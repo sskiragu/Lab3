@@ -75,9 +75,9 @@ public class FragmentPerformance extends Fragment {
 
     private void initData() {
         userList = new ArrayList<>();
-        userList.add(new ModelClass(R.drawable.maixe, "HTML", "10:20AM", html, "_____________________________________________________________________"));
-        userList.add(new ModelClass(R.drawable.rice, "CSS", "10:20AM", css, "_____________________________________________________________________"));
-        userList.add(new ModelClass(R.drawable.others1, "JavaScript", "10:20AM", javascript, "_____________________________________________________________________"));
+        userList.add(new ModelClass(R.drawable.html_image, "HTML", "Excellent", html, "_____________________________________________________________________"));
+        userList.add(new ModelClass(R.drawable.css_image, "CSS", "Very Good", css, "_____________________________________________________________________"));
+        userList.add(new ModelClass(R.drawable.javascript_image, "JavaScript", "Excellent", javascript, "_____________________________________________________________________"));
     }
 
     private void initRecylerView() {
